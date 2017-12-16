@@ -1,0 +1,57 @@
+  <div class= "footer">
+    <br>
+    <div class= "container">
+      <div class= "col-md-4">
+        <table>
+          <tr>
+            <th>Usefull</th>  
+          </tr>
+          <tr>
+            <td><%= link_to 'About' %></td>
+          </tr>
+          <tr>
+            <td><%= link_to 'Advertise' %></td>
+          </tr>
+          <tr>
+            <td><%= link_to 'Themes' %></td>
+          </tr>
+          <tr>
+            <td><%= link_to 'Contact Us' %></td>
+          </tr>
+        </table>
+      </div>
+      <div class= "col-md-4">
+        <table>
+          <tr>
+            <th>Our Themes</th>
+          </tr>
+          <tr>
+            <td><%= link_to 'ALL FREE THEMES', main_themes_path %></td>
+          </tr>
+          <tr>
+            <td><%= link_to 'ACTIVELLO THEME', main_theme_path(11) %></td>
+          </tr>
+          <tr>
+            <td><%= link_to 'ILLDY THEME', main_theme_path(9) %></td>
+          </tr>
+          <tr>
+            <td><%= link_to 'SHAPELY THEME', main_theme_path(8) %></td>
+          </tr>
+          <tr>
+            <td><%= link_to 'SPARKLING', main_theme_path(15) %></td>
+          </tr>
+          <tr>
+            <td><%= link_to 'TRAVELIFY', main_theme_path(16) %></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-4">
+      <%= render 'users/sessions/new' %>
+      </div>
+    </div>
+  </div>
+    <footer>
+      @Copyright 2017 - All Rights Reserved. Privacy Policy | Site Terms & Disclosures
+    </footer>
+    
+ 

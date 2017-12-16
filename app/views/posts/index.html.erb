@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+  <center><h1>Themes</h1></center><br>
+  <div class= "column">
+    <% @posts.each do |post| %>
+      <div class = "col-md-4 img-hover">
+        <p style= "font-size: 15px;"><b><%= post.title %></b></p>
+          <%#= post.description %>
+          <div class="thumbnail">
+            <a href="/posts/<%= post.id %>">
+              <%= image_tag post.avatar_url, class: "img-responsive thumbnail", width: "400", height: "600" %>
+            </a>
+          <%#= link_to "Download Attachment", post.attachment_url %>
+          </div>
+            <%= link_to 'Show', post %>
+            <%= link_to 'Edit', edit_post_path(post) %>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+  </div>
+  <br>
+      
+  <%= link_to 'New Post', new_post_path %>
+

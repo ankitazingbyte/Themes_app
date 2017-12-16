@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+      <div class="nav navbar-header">
+        <a class="navbar-brand" href="#">THEMES</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'HOME', welcome_index_path %></li>
+       <% unless current_user.try(:admin?) %>
+        <li><%= link_to 'Free Themes', main_themes_path %></li>
+        <% else %>
+        <li><%= link_to 'Posts', posts_path %></li>
+        <% end %>
+          <% if user_signed_in? %>
+            <li><%= link_to 'log_out', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "Profile", edit_user_registration_path %></li>
+          <% else %>
+              <li><%= link_to 'sign_up', new_user_registration_path %></li>
+              <li><%= link_to 'log_in', new_user_session_path %></li>
+          <% end %>
+      </ul>
+  </div>
+</nav>

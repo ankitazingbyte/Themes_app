@@ -1,0 +1,20 @@
+	<p id="notice"><%= notice %></p>
+
+	<p style= "font-size: 15px;">
+		<b><%= @post.title %></b>
+	</p>
+
+	<p>
+	  <%#= @post.description %>
+	</p>
+
+	<p>
+	  <%= image_tag @post.avatar_url, width: "1200", height: "1600" %>
+	</p>
+
+	<center>
+	<%= link_to "Demo", @post.path, class: "btn btn-success"%>
+	<%= link_to "Download", @post.attachment_url, class: "btn btn-danger"%>
+	<%= link_to "Document", @post.document, class: "btn btn-primary"%>
+
+	</center>

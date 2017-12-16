@@ -1,0 +1,88 @@
+<style>
+nav {
+    width: 100%;
+    height: 50px;
+    }
+
+    .nav a{
+        color: #6B5195 !important;
+        font-size: 1.4em !important;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+    .color {
+          max-width: 3800px;
+          height: 500px;
+          padding: 230px 380px;
+          color:white;
+          background-color: #6A5094;
+    }
+    footer{
+          background-color: #6A5094;
+          width: 100%;
+          height: 100px;
+          color: grey;
+    }
+</style>
+
+  <div classs= "container">  
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+          <div class="nav navbar-header">
+            <a class="navbar-brand" href="#">Themes</a>
+          </div>
+          <ul class="nav navbar-nav navbar-left">
+            <li><%= link_to 'Home', welcome_index_path %></li>
+            <% unless current_user.try(:admin?) %>
+                <li><%= link_to 'Free Themes', main_themes_path %></li>
+              <% else %>
+                <li><%= link_to 'Posts', posts_path %></li>
+            <% end %>
+              <% if user_signed_in? %>
+                <li><%= link_to 'log_out', destroy_user_session_path, method: :delete %></li>
+                <li><%= link_to "Profile", edit_user_registration_path %></li>
+              <% else %>
+                  <li><%= link_to 'sign_up', new_user_registration_path %></li>
+                  <li><%= link_to 'log_in', new_user_session_path %></li>
+              <% end %>
+          </ul> 
+          <div class="col-md-7">
+            <ul class="nav navbar-nav navbar-right">
+              <div class="col-md-2">
+                <li><i class="fa fa-twitter" style="font-size:20px;color:#6A5094;padding: 14px;"></i></li>
+              </div>
+              <div class="col-md-2">
+                <li><i class="fa fa-facebook" style="font-size:20px;color:#6A5094;padding: 14px;"></i></li>
+              </div>
+              <div class="col-md-2">
+                <li><i class="fa fa-google-plus" style="font-size:20px;color:#6A5094;padding: 14px;"></i></li>
+              </div>
+            </ul>
+          </div>
+      </div>
+    </nav>
+  </div>
+    <div class= "color">
+      <cenetr><h1> Change One Theme At A Time</h1></cenetr>
+    </div>
+ 
+  <body>
+    <center>
+      <div class="container">
+        <center><h1>Themes</h1></center><br>
+        <div class= "column">
+          <% @posts.each do |post| %>
+            <div class= "col-md-4 img-hover">
+              <p style= "font-size: 15px;"><b><%= post.title %></b></p>
+                <div class= "thumbnail">
+                  <a href= "/main_themes/<%= post.id %>">
+                    <%= image_tag post.avatar_url, class: "img-responsive thumbnail", width: "400", height: "600" %>
+                  </a>
+                </div>
+            </div>
+          <% end %>
+        </div>
+    </center>
+  </body>
+  <footer>
+    
+  </footer>

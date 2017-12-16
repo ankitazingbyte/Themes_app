@@ -1,0 +1,54 @@
+<p id= "notice"><%= notice %></p>
+<style>
+    .nav a{
+           font-size: 1.8em !important;
+              }
+      
+    .footer {
+       left: 0;
+       bottom: 0;
+       width: 100%;
+       height: 400px;
+       background-color: #262626;
+       color: white;
+       text-align: right;
+            }
+    footer{
+      background-color: black;
+      width: 100%;
+      height: 50px;
+      color: grey;
+    }
+    table, td, th {    
+        border-bottom: 1px solid #333333;
+        text-align: left;
+            }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+          }
+
+    th, td {
+        padding: 15px;
+          }
+  </style>
+<%= render 'layouts/header' %>
+<div class="container">
+  <center><h1>Themes</h1></center><br>
+  <div class= "column">
+    <% @posts.each do |post| %>
+      <div class= "col-md-4 img-hover">
+        <p style= "font-size: 15px;"><b><%= post.title %></b></p>
+          <div class= "thumbnail">
+            <a href= "/main_themes/<%= post.id %>">
+              <%= image_tag post.avatar_url, class: "img-responsive thumbnail", width: "400", height: "600" %>
+            </a>
+          </div>
+      </div>
+    <% end %>
+  </div>
+<br>
+</div>
+  <%= render 'layouts/footer' %>
+  
